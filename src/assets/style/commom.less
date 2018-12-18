@@ -1,0 +1,436 @@
+/**
+ * cerat on 2017/5/2 该文件主要是写公共样式
+ */
+@import './base.less';
+@charset "UTF-8";
+
+.container-header {
+  overflow: hidden;
+  padding: 20px 0;
+  h2 {
+    float: left;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+    color: @jyw-tit-font-color;
+  }
+}
+.order-view .header-btn-group, 
+.ivu-modal .header-btn-group, 
+.container-box .header-btn-group {
+  float: right;
+  &.not-float {
+    float: none;
+    display: inline-block;
+  }
+  .header-item {
+    float: left;
+    padding: 4px 10px;
+    margin: 1px 0 0 8px;
+    font-size: 13px;
+    line-height: 20px;
+    color: #fff;
+    background-color: @jyw-primary-color;
+    border-radius: 4px;
+    cursor: pointer;
+    i {
+      margin-right: 6px;
+    }
+  }
+}
+.container-body {
+  padding: 30px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 7px 14px 0 rgba(42,42,68,.1);
+}
+
+  .float-left{
+    float: left;
+  }
+   .float-right{
+    float: left;
+  }
+.footer-btnGroup {
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-btnGroup button {
+    margin: 0 10px;
+}
+.table-left-btn button {
+  margin-bottom: 10px;
+}
+.ivu-modal .ivu-table-body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#app .ivu-table td.table-info-column {
+    background-color: #fff;
+}
+#app .ivu-menu-horizontal {
+  overflow: hidden;
+  height: auto;
+}
+#app .customer-item {
+  padding-top: 10px;
+}
+#app .customer-item-title {
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+#app .customer-item h3 {
+  float: left;
+  line-height: 29px;
+  font-weight: normal;
+}
+#app .customer-item h3 i {
+  margin-right: 10px;
+}
+#app .tableEdit {
+  width: 100%;
+  border-collapse:collapse;
+  border-top: 1px solid rgba(65, 65, 65, 0.3);
+  border-left: 1px solid rgba(65, 65, 65, 0.3);
+}
+#app .tableEdit .tit {
+  background: rgba(73,133,243,0.05);
+}
+#app .tableEdit td {
+  padding: 5px;
+  border-bottom: 1px solid rgba(65, 65, 65, 0.3);
+  border-right: 1px solid rgba(65, 65, 65, 0.3);
+}
+.demo-spin-icon-load, 
+.spin-icon-load{
+    animation: ani-spin 1s linear infinite;
+}
+@keyframes ani-spin {
+    from { transform: rotate(0deg);}
+    50%  { transform: rotate(180deg);}
+    to   { transform: rotate(360deg);}
+}
+#app .ivu-table-cell {
+  padding: 9px 5px;
+}
+#app td.table-num .ivu-table-cell {
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: visible;
+    padding: 1px;
+}
+.edui-editor-iframeholder.edui-default {
+    height: 200px;
+}
+.edui-editor.edui-default {
+  z-index: 1 !important;
+}
+.upload-list{
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  margin-right: 4px;
+}
+.upload-list img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.upload-list-cover{
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.6);
+}
+.upload-list:hover .upload-list-cover{
+  display: block;
+}
+.upload-list-cover i{
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 0 2px;
+}
+.container-wrap .order-view {
+  width: 100%;
+  height: 100%;
+}
+.container-wrap .order-view .container-body {
+  padding-bottom: 150px;
+}
+#liveOrder .order-search {
+  bottom: 50px;
+}
+.order-view .order-search {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  background: #fff;
+  z-index: 900;
+}
+.order-view .search-tab {
+  position: relative;
+  padding: 0 14px;
+  height: 50px;
+}
+.order-view .tab-item {
+  position: relative;
+  float: left;
+  padding: 0 14px;
+  font-size: 13px;
+  line-height: 50px;
+  color: rgba(42,42,68,0.7);
+  cursor: pointer;
+}
+.order-view .tab-item span {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 2px;
+  background-image: linear-gradient(90deg, #4173F9 1%, #47C3FF 99%);
+  display: none;
+}
+.order-view .tab-item.active {
+  color: rgba(42,42,68,1);
+}
+.order-view .tab-item.active span {
+  display: block;
+}
+.order-view .search-menu {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 40px;
+  padding: 0px 10px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 2px 0px 8px 0 rgba(42,42,68,0.10);
+  border-radius: 6px;
+}
+.order-view .menu-item .ivu-form {
+  padding-top: 24px;
+}
+.order-view .order-search .search-box {
+  position: relative;
+  padding: 5px 15px;
+}
+.ivu-modal-body .ivu-page-simple, 
+.order-view .ivu-page-simple {
+  padding: 10px 0;
+  text-align: right;
+}
+.order-view .order-search .ivu-select-dropdown {
+  bottom: 40px !important;
+  top: inherit !important;
+}
+.order-view .order-search .optionType {
+  color: red;
+  padding-left: 5px;
+}
+.order-view .order-search .search-edit {
+  margin-top: 15px;
+}
+.container-box .oreder-tit {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 38px;
+  text-align: center;
+  color: rgba(42,42,68,0.92);
+}
+.container-box .oreder-line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 15px;
+  border: none;
+  background: rgba(65, 65, 65, 0.1);
+}
+.container-box .table-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  padding: 5px 0;
+}
+
+
+.jyw-footer-btn {
+  padding: 13px 40px;
+  margin-bottom: -30px;
+  text-align: right;
+  background-color: #fff;
+  box-shadow: inset 0 1px 0 0 rgba(42,42,68,0.10);
+  button {
+    min-width: 80px;
+    margin-left: 20px
+  }
+  .cancel {
+    border-color: @jyw-primary-color;
+    color: @jyw-primary-color;
+  }
+}
+.jyw-reporter-tit {
+  position: relative;
+  height: 42px;
+  padding-bottom: 20px;
+  h3 {
+    float: left;
+    height: 22px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 22px;
+    color: #181818;
+  }
+  .export {
+    float: right;
+    width: 30px;
+    height: 22px;
+    background: url('../img/reportExport.png') right center no-repeat;
+    cursor: pointer;
+  }
+  .info {
+    position: relative;
+    float: right;
+    width: 30px;
+    height: 22px;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #2a2a2a;
+    cursor: pointer;
+    &:hover {
+      .info-msg {
+        display: block;
+      }
+    }
+  }
+  .info-msg {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    width: 600px;
+    padding: 15px;
+    text-align: left;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    z-index: 905;
+    display: none;
+    p {
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #2a2a2a;
+    }
+    .msg {
+      margin-top: 0px;
+      padding-left: 40px;
+    }
+  }
+}
+.container-box .jyw-report-chart-menu {
+  margin: -20px 0 20px;
+}
+.report-chart-container {
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+}
+.report-chart {
+  width: 100%;
+  height: 100%;
+}
+.jyw-complex-table {
+  width: 100%;
+  overflow: auto;
+  table {
+    width: 100%;
+    border-collapse:collapse;
+    border-bottom: 1px solid #d7dde4;
+    border-right: 1px solid #d7dde4;
+  }
+  th, 
+  td {
+    height: 36px;
+    padding: 5px;
+    border-left: 1px solid #d7dde4;
+    border-top: 1px solid #d7dde4;
+  }
+  .hidden {
+    display: none;
+  }
+  .text {
+    min-width: 60px;
+    overflow: hidden;
+    word-break: break-word;
+    text-align: center;
+  }
+  .time {
+    min-width: 80px;
+    text-align: center;
+  }
+  .price {
+    min-width: 60px;
+    text-align: right;
+  }
+  .num {
+    min-width: 60px;
+    text-align: center;
+  }
+  .bg {
+    background: rgba(65,114,246,0.05);
+  }
+}
+.jyw-report-pic {
+  width: 40px;
+  height: 50px;
+  background: url('../img/report-pic.png') center no-repeat;
+}
+
+//2.13版本更新样式兼容
+
+#app .ivu-menu {
+  z-index: 899;
+}
+li { 
+  list-style:none;
+}
+
+//类型树弹窗样式
+.modal-category-tree {
+  .box {
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .ivu-tree ul li {
+    margin:  12px 0;
+    min-height: 24px;
+    span {
+      vertical-align: middle;
+      line-height: 24px;
+    }
+  }
+  .tree-hover {
+    &:hover {
+      background: rgba(65, 114, 246, 0.1);
+    }
+  }
+}
+.customer-box {
+  padding-top: 20px;
+}

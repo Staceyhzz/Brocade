@@ -1,0 +1,113 @@
+/**
+ * css 样式重置，针对重置变量无法完成的css
+ * 
+ */
+
+/********************
+表格样式重置        
+********************/
+.ivu-table table { 
+    width: 100% !important;
+}
+.ivu-table-stripe .ivu-table-tip td, 
+.ivu-table-stripe .ivu-table-body tr:nth-child(2n+1) td, 
+.ivu-table-stripe .ivu-table-fixed-body tr:nth-child(2n+1) td {
+	background: rgba(65,114,246,0.05);
+}
+.ivu-table table th, .ivu-table table td {
+	height: 34px;
+    border-width: 0px;
+}
+.ivu-table-stripe .ivu-table-body tr.ivu-table-row-hover td, .ivu-table-stripe .ivu-table-fixed-body tr.ivu-table-row-hover td {
+    background-color: rgba(65, 114, 246, 0.1) !important;
+}
+.ivu-table .ivu-table-fixed {
+    background-color: #fff;
+}
+.ivu-table:before, 
+.ivu-table:after {
+    display: none;
+}
+body .ivu-table-wrapper {
+    border-width: 0px;
+}
+.v-transfer-dom .ivu-table-cell {
+    padding: 9px 5px;
+}
+
+/********************
+分页样式重置        
+********************/
+.ivu-page-prev{
+	margin-right: 0 !important;
+}
+.ivu-page-next{
+	margin-left: 0 !important;
+}
+.ivu-page-item{
+	margin-right: 0 !important;
+}
+
+.ivu-page-prev, 
+.ivu-page-item-jump-prev
+{
+	border-radius: 4px 0 0 4px !important;
+}
+.ivu-page-next, 
+.ivu-page-item-jump-next{
+	border-radius: 0 4px 4px 0 !important;
+}
+.ivu-page-item{
+	border-radius: 0 !important;
+}
+.table-page{
+    overflow: hidden;
+    padding: 10px 0;
+}
+.table-page .table-info{
+    float: left;
+    height: 32px;
+    line-height: 32px;
+}
+.table-page .table-paginate{
+    float: right;
+}
+/********************
+Switch 开关样式重置        
+********************/
+.ivu-switch {
+    border: 0px !important;
+    line-height: 24px !important;
+}
+.ivu-switch:after {
+    top: 2px !important;
+}
+.ivu-switch-checked {
+    /* background-image: linear-gradient(-90deg, #4173F9 1%, #47C3FF 99%) !important; */
+}
+
+/********************
+表单 开关样式重置        
+********************/
+body .ivu-form-item {
+    margin-bottom: 20px;
+}
+body .ivu-form-item-error-tip {
+    padding-top: 4px;
+}
+.ivu-form-item .ivu-form-item-label {
+    word-break: break-all;
+}
+/********************
+tabs样式重置        
+********************/
+.ivu-tabs.ivu-tabs-no-animation .ivu-tabs-nav-scroll {
+    /* overflow: auto; */
+}
+/********************
+提示框样式重置        
+********************/
+.ivu-notice-with-desc.ivu-notice-with-icon .ivu-notice-desc {
+    max-height: 200px;
+    overflow: auto;
+}

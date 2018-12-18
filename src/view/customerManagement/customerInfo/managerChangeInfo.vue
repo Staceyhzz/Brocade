@@ -1,0 +1,141 @@
+/** 
+ * 添加咨询人员变更申请页面 
+ */
+
+<template>
+  <div class="container-box userPower">
+    <div class="container-header">
+      <h2>{{$t('cusNavList.customerManagerChange')}}</h2>
+    </div>
+    <div class="container-body">
+      <Form ref="formValidate" :model="formValidate" :rules="ruleForm" :label-width="100" label-position="right">
+        <Form-item :label="$t('exploitChangeInfo.label1')">
+          <span>{{$t('labelPublic.zxry')}}</span>
+        </Form-item>
+        <Form-item :label="$t('managerChangeInfo.label1')">
+          <span>{{ManagerUserName}}</span>
+        </Form-item>
+        <Form-item :label="$t('managerChangeInfo.label2')" prop="userName" required class='treatAddObj'>
+          <Input v-model="formValidate.userName" readonly icon="ios-search" :placeholder="$t('managerChangeInfo.valid')" @on-focus="addUser" style="width:300px"></Input>
+        </Form-item>
+        <Form-item :label="$t('exploitChangeInfo.label4')" prop="content" required>
+          <Input v-model.trim="formValidate.content" type="textarea" :autosize="{minRows: 2,maxRows: 7}" :placeholder="$t('exploitChangeInfo.valid2')" :maxlength='100'></Input>
+        </Form-item>
+      </Form>
+      <div class="footer-btnGroup">
+        <Button type="primary" icon="checkmark" @click='save' :loading='saveLoad'>{{$t('publicSet.save')}}</Button>
+        <Button type="primary" icon="android-arrow-back" @click='back'>{{$t('publicSet.back')}}</Button>
+      </div>
+    </div>
+    <cmptChooseUserSinger :placeHolder="$t('managerChangeInfo.valid')" @setUserData="setUser" :openKey='userOpenKey'></cmptChooseUserSinger>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      const validateCon = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error(this.$t('exploitChangeInfo.valid2')));
+        } else {
+          callback();
+        }
+      };
+      const validateUser = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error(this.$t('managerChangeInfo.valid')));
+        } else {
+          callback();
+        }
+      };
+      return {
+        cusName: '',
+        saveLoad: false,
+        ManagerUserName: '',
+        userOpenKey: false,
+        formValidate: {
+          customerId: '',
+          userId: '',
+          userName: '',
+          content: ''
+        },
+        ruleForm: {
+          userName: [{
+            validator: validateUser,
+            trigger: 'change'
+          }],
+          content: [{
+            validator: validateCon,
+            trigger: 'blur'
+          }]
+        }
+      }
+    },
+    created() {
+      this.formValidate.customerId = sessionStorage.getItem('cusId');
+      this.cusName = sessionStorage.getItem('cusName');
+      this.getId(this.formValidate.customerId);
+    },
+    methods: {
+      // 获取资料
+      getId(id) {
+        let _vm = this;
+        _vm.$store.dispatch('setPageLoading', -1)
+        _vm.$http.getPage({
+          url: 'guard-webManager/customerRecord/managerChangeInfo.jhtml',
+          data: {
+            customerId: id
+          },
+          success: function (res) {
+						_vm.ManagerUserName = res.data.content.ManagerUserName || '';
+						_vm.$store.dispatch('setPageLoading', 1);
+          },
+          error: function (res) {
+            console.log(res);
+          }
+        });
+      },
+      addUser() {
+        this.userOpenKey = !this.userOpenKey;
+      },
+      setUser(data) {
+        this.formValidate.userId = data.id;
+        this.formValidate.userName = data.name;
+      },
+      save() {
+        let _vm = this;
+        _vm.$refs['formValidate'].validate((valid) => {
+          if (valid) {
+            _vm.saveLoad = true
+            _vm.$http.post({
+              url: 'guard-webManager/customerRecord/editManagerChange.jhtml',
+              data: _vm.formValidate,
+              success: function (res) {
+                if (res.data.code === 0) {
+                  _vm.$router.push('/customerMsg');
+                  _vm.$Notice.success({
+                    title: _vm.$t('publicSet.noticeTit'),
+                    desc: res.data.content
+                  })
+                } else {
+                  _vm.$Notice.error({
+                    title: _vm.$t('publicSet.noticeTit'),
+                    desc: res.data.desc
+                  });
+                  _vm.saveLoad = false;
+                }
+              },
+              error: function (res) {
+                console.log(res);
+              }
+            });
+          }
+        })
+      },
+      back() {
+        this.$router.back(-1);
+      }
+    }
+  }
+
+</script>
